@@ -1,0 +1,97 @@
+﻿html {
+    background: url(coffeeshop.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    padding-top: 20px;
+    font-size: 14px;
+    font-family: "Open Sans",serif;
+    background: transparent;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.margin-base-vertical {
+    margin: 20px 0;
+}
+
+.coffee div {
+    clear: both;
+    overflow: hidden;
+}
+
+.coffee label {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #D1D3D4;
+    font-weight: normal;
+}
+
+.coffee input[type="radio"]:empty {
+    display: none;
+}
+
+    .coffee input[type="radio"]:empty ~ label {
+        position: relative;
+        line-height: 2.5em;
+        text-indent: 3.25em;
+        margin-top: 2em;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .coffee input[type="radio"]:empty ~ label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+
+.coffee input[type="radio"]:hover:not(:checked) ~ label {
+    color: #888;
+}
+
+    .coffee input[type="radio"]:hover:not(:checked) ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #C2C2C2;
+    }
+
+.coffee input[type="radio"]:checked ~ label {
+    color: #777;
+}
+
+    .coffee input[type="radio"]:checked ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #333;
+        background-color: #ccc;
+    }
+
+.coffee input[type="radio"]:focus ~ label:before {
+    box-shadow: 0 0 0 3px #999;
+}
+
+.coffee-default input[type="radio"]:checked ~ label:before {
+    color: #333;
+    background-color: #ccc;
+}
+
+.coffee-primary input[type="radio"]:checked ~ label:before {
+    color: #fff;
+    background-color: #337ab7;
+}

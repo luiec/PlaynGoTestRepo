@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap In Practice - Landing Page Example</title>
+    <link href="~/Content/coffeeCss.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 col-md-offset-2 panel panel-default">
+                <div class="coffee">
+                    <div class="coffee-primary">
+                        <input type="radio" name="coffeeType" id="radio1" value="DoubleAmericano" checked />
+                        <label for="radio1">Double Americano</label>
+                    </div>
+                    <div class="coffee-primary">
+                        <input type="radio" name="coffeeType" id="radio2" value="SweetLatte" />
+                        <label for="radio2">Sweet Latte</label>
+                    </div>
+                    <div class="coffee-primary">
+                        <input type="radio" name="coffeeType" id="radio3" value="FlatWhite" />
+                        <label for="radio3">Flat White</label>
+                    </div>
+                </div>
+
+                <p class="text-center">
+                    <button id="btnOrder" type="submit" class="btn btn-success btn-lg">Order</button>
+                </p>
+                <div id="divChart">
+                    <p>
+                        <img id="imgIngredientsChart" src="@Url.Action("LoadIngredientsChart","Coffee")" alt="Ingredients Chart" />      <img id="imgCoffeeChart" src="@Url.Action("LoadCoffeeChart","Coffee")" alt="Coffee Chart" />
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@section scripts {
+
+    <script>
+
+        //alert('foo');
+
+        $('#btnOrder').click(function () {
+            var coffee = $("input[name=coffeeType]:checked").val();
+
+            //  alert(coffee)
+
+            $.ajax({
+                //url: "@Url.Action("Order","Coffee")",
+                url: '/Coffee/Order',
+                type: 'POST',
+                dataType: 'html',
+                data: { 'coffeeType': coffee },
+                cache: false,
+                success: function (html) {
+
+                    //load chart
+
+                    $("#imgIngredientsChart").attr("src", "");
+                    $("#imgCoffeeChart").attr("src", "");
+
+                    $("#imgIngredientsChart").attr("src", "/Coffee/LoadIngredientsChart/?" + new Date().getTime());
+                    $("#imgCoffeeChart").attr("src", "/Coffee/LoadCoffeeChart/?" + new Date().getTime());
+                },
+                error: function (html) {
+                    alert(html)
+                }
+            });
+        })
+
+    </script>
+
+}
