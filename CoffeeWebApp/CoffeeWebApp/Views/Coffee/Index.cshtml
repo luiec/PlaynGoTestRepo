@@ -33,6 +33,14 @@
                         <img id="imgIngredientsChart" src="@Url.Action("LoadIngredientsChart","Coffee")" alt="Ingredients Chart" />      <img id="imgCoffeeChart" src="@Url.Action("LoadCoffeeChart","Coffee")" alt="Coffee Chart" />
                     </p>
                 </div>
+                <div id="divHistory">
+                    <table class="table text-center" id="tblHistory">
+                        <tr>
+                            <th>Coffee </th>
+                            <th>Date</th>
+                        </tr>
+                    </table>  
+                </div>
 
             </div>
         </div>
@@ -68,12 +76,29 @@
 
                     $("#imgIngredientsChart").attr("src", "/Coffee/LoadIngredientsChart/?" + new Date().getTime());
                     $("#imgCoffeeChart").attr("src", "/Coffee/LoadCoffeeChart/?" + new Date().getTime());
+
+                    GetHistory();
                 },
                 error: function (html) {
                     alert(html)
                 }
             });
         })
+
+        function GetHistory() {
+
+            $("#tblHistory").find("tr:gt(0)").remove();
+
+            $.get('/Coffee/GetHistory', {}, function (data) {
+                var tblHistory = $("#tblHistory");
+                $.each(data, function (index, item) {
+                    var tr = $("<tr></tr>");
+                    tr.html(("<td>" + item.CoffeeType + "</td>")
+                    + " " + ("<td>" + item.Date + "</td>"));
+                    tblHistory.append(tr);
+                });
+            });
+        }
 
     </script>
 

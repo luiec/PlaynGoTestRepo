@@ -9,9 +9,7 @@ namespace CoffeeWebApp.Models
     {
         int CoffeeBean { get; set; }
         int Milk { get; set; }
-        int Sugar { get; set; }
-
-        void OrderCoffee();
+        int Sugar { get; set; }  
 
     }
 }

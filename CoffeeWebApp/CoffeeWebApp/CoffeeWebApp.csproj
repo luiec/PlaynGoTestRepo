@@ -203,7 +203,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CoffeeModel.cs" />
+    <Compile Include="Models\ICoffee.cs" />
     <Compile Include="Models\DoubleAmericanoModel.cs" />
     <Compile Include="Models\FlatWhiteModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -276,8 +276,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Coffee\Coffee.cshtml" />
-    <Content Include="Views\Coffee\_showChart.cshtml" />
+    <Content Include="Views\Coffee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

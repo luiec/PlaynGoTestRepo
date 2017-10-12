@@ -21,9 +21,6 @@ namespace CoffeeWebApp.Models
 
         public int Sugar { get; set; }
 
-        public void OrderCoffee()
-        {
-          //  throw new NotImplementedException();
-        }
+      
     }
 }

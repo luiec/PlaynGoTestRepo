@@ -12,7 +12,7 @@ namespace CoffeeWebApp.Controllers
     public class CoffeeController : Controller
     {
         // GET: Coffee
-        public ActionResult Coffee()
+        public ActionResult Index()
         {
             return View();
         }
@@ -44,6 +44,11 @@ namespace CoffeeWebApp.Controllers
                             yValues: new[] { CoffeeOrders[CoffeeType.DoubleAmericano.ToString()], CoffeeOrders[CoffeeType.SweetLatte.ToString()], CoffeeOrders[CoffeeType.FlatWhite.ToString()] })
                             .GetBytes("png");
             return File(coffeeChart, "image/bytes");
+        }
+
+        public JsonResult GetHistory()
+        {
+            return Json(History, JsonRequestBehavior.AllowGet);
         }
     }
 }

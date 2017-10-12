@@ -8,12 +8,6 @@ namespace CoffeeWebApp.Models
     public class OrderHistory
     {
         public string CoffeeType { get; set; }
-        public DateTime Date { get; set; }
-
-        public OrderHistory()
-        {
-            Date = new DateTime();
-        }
-
+        public string Date { get; set; }
     }
 }

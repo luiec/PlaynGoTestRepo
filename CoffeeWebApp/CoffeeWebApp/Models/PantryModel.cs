@@ -64,7 +64,6 @@ namespace CoffeeWebApp.Models
                 var coffee = CoffeeDictionary[coffeeType];
                 if (CheckIngredients(coffee))
                 {
-                    coffee.OrderCoffee();
                     UpdateInventoryUnits(coffee.CoffeeBean, coffee.Milk, coffee.Sugar);
                     RecordOrder(coffeeType);
                 }
@@ -87,7 +86,7 @@ namespace CoffeeWebApp.Models
         {
             OrderHistory order = new OrderHistory();
             order.CoffeeType = coffeeType;
-            order.Date = DateTime.Today;
+            order.Date = DateTime.Now.ToString();
             History.Add(order);
             UpdateOrderCount();
         }

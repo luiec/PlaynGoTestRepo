@@ -16,7 +16,7 @@ namespace CoffeeWebApp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Coffee", action = "Coffee", id = UrlParameter.Optional }
+                defaults: new { controller = "Coffee", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
